@@ -16,7 +16,7 @@ const NavBar = () => {
         <Link>Projects</Link>
       </li>
       <li>
-        <Link>Contact</Link>
+        <Link to="/contact">Contact</Link>
       </li>
       <li>
         <button className="border-2 border-blue-500 rounded-lg hover:bg-blue-500 hover:text-white ml-16">Resume</button>

@@ -1,0 +1,33 @@
+[
+  
+  {
+    "projectName": "Lingo",
+    "image": "",
+    "technologiesUsed": ["React", "React Router", "Tailwind CSS", "Daisy UI", "Firebase","Express", "MongoDB", "JWT", "Axios", "Stripe", "React-query"],
+    "keyFeatures": ["Dashboard System", "Stripe Payment System"],
+    "liveLink": "https://summer-camp-school-8b807.web.app/",
+    "githubClientLink": "https://github.com/Sagor66/Lingo-Client",
+    "githubServerLink": "https://github.com/Sagor66/Lingo-Server",
+    "videoLink": "https://www.youtube.com/embed/W435QA8ZNkc"
+  },
+  {
+    "projectName": "TED",
+    "image": "",
+    "technologiesUsed": ["React", "React Router", "Tailwind CSS", "Daisy UI", "Firebase","Express", "MongoDB"],
+    "keyFeatures": ["Add, Update, Delete toys", "User name and Profile pic on navbar"],
+    "liveLink": "https://toy-marketplace-a059d.web.app/",
+    "githubClientLink": "https://github.com/Sagor66/TED-Client",
+    "githubServerLink": "https://github.com/Sagor66/TED-Server",
+    "videoLink": "https://www.youtube.com/embed/QMk_Bbx1tnA"
+  },
+  {
+    "projectName": "Baburchi",
+    "image": "",
+    "technologiesUsed": ["React", "React Router", "Tailwind CSS", "Daisy UI", "Firebase","Express"],
+    "keyFeatures": ["Firebae Authentication"],
+    "liveLink": "https://chef-recipe-hunter-1e811.web.app/",
+    "githubClientLink": "https://github.com/Sagor66/Baburchi-Client",
+    "githubServerLink": "https://github.com/Sagor66/Baburchi-Server",
+    "videoLink": "https://www.youtube.com/embed/rUfhL4iNSsg"
+  }
+]
