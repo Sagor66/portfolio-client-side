@@ -28,7 +28,7 @@ const NavBar = () => {
     <div>
       <div className="navbar bg-base-100 px-10 py-4">
         <div className="navbar-start">
-          <Link className="text-3xl font-bold"><span className="text-blue-500 font-black">Shazzad</span>.dev</Link>
+          <Link className="text-3xl font-bold text-slate-600"><span className="text-blue-500 font-black">Shazzad</span>.dev</Link>
         </div>
         <div className="navbar-end hidden lg:flex">
           <ul className="menu menu-horizontal px-1 text-base font-bold text-blue-500">{navOptions}</ul>

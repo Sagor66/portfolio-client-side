@@ -4,7 +4,7 @@ import Footer from "../pages/Shared/Footer";
 
 const Main = () => {
   return (
-    <div className="font-nunito">
+    <div className="font-nunito text-black">
       <div className="min-h-screen">
         <NavBar></NavBar>
         <Outlet></Outlet>
