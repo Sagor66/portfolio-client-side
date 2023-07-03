@@ -10,7 +10,7 @@ const NavBar = () => {
         <Link>Home</Link>
       </li>
       <li>
-        <Link>About</Link>
+        <Link to="/about">About</Link>
       </li>
       <li>
         <Link>Projects</Link>
@@ -19,7 +19,11 @@ const NavBar = () => {
         <Link to="/contact">Contact</Link>
       </li>
       <li>
-        <button className="border-2 border-blue-500 rounded-lg hover:bg-blue-500 hover:text-white ml-16">Resume</button>
+        <button className="border-2 border-blue-500 rounded-lg hover:bg-blue-500 hover:text-white ml-16">
+          <a href="https://drive.google.com/uc?export=download&id=1GVOtIWTY0VzMLTwUVkUm5i4H_yAvtu-6">
+            Resume
+          </a>
+        </button>
       </li>
     </>
   );
@@ -28,10 +32,14 @@ const NavBar = () => {
     <div>
       <div className="navbar bg-base-100 px-10 py-4">
         <div className="navbar-start">
-          <Link className="text-3xl font-bold text-slate-600"><span className="text-blue-500 font-black">Shazzad</span>.dev</Link>
+          <Link className="text-3xl font-bold text-slate-600">
+            <span className="text-blue-500 font-black">Shazzad</span>.dev
+          </Link>
         </div>
         <div className="navbar-end hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 text-base font-bold text-blue-500">{navOptions}</ul>
+          <ul className="menu menu-horizontal px-1 text-base font-bold text-blue-500">
+            {navOptions}
+          </ul>
         </div>
         {isDesktop || (
           <div className="navbar-end">

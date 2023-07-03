@@ -15,8 +15,8 @@ const Projects = ({ project }) => {
   console.log(project.projectName)
 
   return (
-    <div className="flex items-center gap-10 mb-10 bg-gradient-to-l from-blue-700 via-blue-500 to-white justify-between rounded-xl ">
-      <div className="ml-3 z-20 top-1/3 border-2 border-white rounded-xl">
+    <div className="flex flex-col lg:flex-row items-center lg:gap-10 mb-10 bg-gradient-to-l from-blue-700 via-blue-500 to-white justify-between rounded-xl px-5">
+      <div className="lg:ml-3 z-20 top-1/3 border-2 border-white rounded-xl">
         <iframe
           width="700"
           height="393.75"
@@ -25,16 +25,16 @@ const Projects = ({ project }) => {
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen
-          className="rounded-xl hover:scale-125 ease-in duration-300"
+          className="rounded-xl hover:scale-125 ease-in duration-300 w-[400px] lg:w-[700px] "
         ></iframe>
       </div>
       <div>
-        <div className="w-[600px] bg-gradient-to-b from-blue-700 via-blue-600 to-blue-500 rounded-xl border-4 border-blue-100 px-5 py-8">
+        <div className="w-[400px] lg:w-[600px] bg-gradient-to-b from-blue-700 via-blue-600 to-blue-500 rounded-xl border-4 border-blue-100 px-5 py-8">
           <h4 className="text-center text-4xl text-white font-black mb-4">
             {projectName}
           </h4>
           <div className="text-white space-y-10">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col-reverse lg:flex-row lg:items-center justify-between gap-2">
               <div>
                 <p className="font-bold">Key Features</p>
                 <ul className="ml-4 text-sm">
@@ -43,7 +43,7 @@ const Projects = ({ project }) => {
                   ))}
                 </ul>
               </div>
-              <div className="flex gap-4 text-4xl mr-10 text-blue-500 bg-white px-4 py-2 rounded">
+              <div className="flex gap-4 text-4xl lg:mr-10 text-blue-500 bg-white px-4 py-2 rounded w-fit mx-auto">
                 <SiReact style={{ color: "#3b82f6" }}></SiReact>
                 <SiTailwindcss style={{ color: "#0ea5e9" }}></SiTailwindcss>
                 <SiExpress style={{ color: "#71717a" }}></SiExpress>

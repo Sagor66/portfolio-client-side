@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./banner.css";
 
 const Banner = () => {
@@ -16,6 +17,11 @@ const Banner = () => {
           and interactive website or web applications, based in Bangladesh
           &#x1F4CD;
         </p>
+        <Link to="/contact">
+          <button className="bg-blue-500 text-white text-xl font-bold px-6 py-3 rounded-lg mt-8 hover:text-blue-500 hover:bg-white border-2 border-blue-500">
+            Contact Me
+          </button>
+        </Link>
       </div>
       {/* Banner image */}
       <div className="blob"></div>

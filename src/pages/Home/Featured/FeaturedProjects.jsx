@@ -9,7 +9,7 @@ const FeaturedProjects = () => {
   const [projects, setProjects] = useState([])
 
   useEffect(() => {
-    fetch('../../../../public/data.json')
+    fetch('data.json')
     .then(res => res.json())
     .then(data => setProjects(data))
   }, [])
@@ -17,7 +17,7 @@ const FeaturedProjects = () => {
   console.log(projects)
 
   return (
-    <div className="bg-blue-500 h-fit relative bg-featured pb-40 mb-32">
+    <div className="bg-blue-500 h-fit relative bg-featured pb-40 mb-10">
       <img className='absolute top-0' src={wave1} alt="" />
       <div className="max-w-7xl mx-auto">
         <h2 className="text-5xl font-extrabold tracking-wider text-white text-center px-4 py-2 w-fit mx-auto pt-32 mb-16">
