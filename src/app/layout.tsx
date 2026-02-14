@@ -8,6 +8,9 @@ import CustomCursor from "@/components/Shared/CustomCursor";
 export const metadata: Metadata = {
   title: "Shazzad.dev",
   description: "Portfolio of Shazzadul Haque",
+  icons: {
+    icon: "/icon",
+  },
 };
 
 export default function RootLayout({

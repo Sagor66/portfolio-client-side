@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { SiGithub, SiGmail, SiLinkedin, SiTwitter } from "react-icons/si";
+import Logo from "./Logo";
 
 const Footer = () => {
   const socialLinks = [
@@ -38,13 +39,16 @@ const Footer = () => {
             </motion.a>
           ))}
         </div>
-        <p className="text-center text-slate-600 font-medium">
-          COPYRIGHT©2024{" "}
-          <span className="bg-gradient-to-r from-brand-primary to-blue-600 bg-clip-text text-transparent font-bold">
-            SHAZZAD
-          </span>{" "}
-          ALL RIGHTS RESERVED
-        </p>
+        <div className="flex flex-col items-center gap-4 mb-6">
+          <p className="text-center text-slate-600 font-medium">
+            COPYRIGHT©2024{" "}
+            <span className="bg-gradient-to-r from-brand-primary to-blue-600 bg-clip-text text-transparent font-bold">
+              SHAZZAD
+            </span>{" "}
+            ALL RIGHTS RESERVED
+          </p>
+          <Logo size="md" />
+        </div>
       </div>
     </footer>
   );

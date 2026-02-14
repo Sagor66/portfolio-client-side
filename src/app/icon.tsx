@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 // Route segment config
-export const runtime = "edge";
+// standard runtime for better stability on Vercel image generation
 
 // Image metadata
 export const alt = "Shazzad.dev Logo";
