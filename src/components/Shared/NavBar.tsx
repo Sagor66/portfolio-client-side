@@ -78,7 +78,9 @@ const NavBar = () => {
                 </Link>
               ))}
               <a
-                href="https://drive.google.com/uc?export=download&id=1GVOtIWTY0VzMLTwUVkUm5i4H_yAvtu-6"
+                href="https://drive.google.com/file/d/1RVZfgA5toMmGeFhw5tyMoQUVaKvmaJC6/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="relative group"
               >
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary via-blue-600 to-brand-primary rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
@@ -129,7 +131,9 @@ const NavBar = () => {
                 </Link>
               ))}
               <a
-                href="https://drive.google.com/uc?export=download&id=1GVOtIWTY0VzMLTwUVkUm5i4H_yAvtu-6"
+                href="https://drive.google.com/file/d/1RVZfgA5toMmGeFhw5tyMoQUVaKvmaJC6/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center w-12 h-12 rounded-xl text-white bg-gradient-to-br from-brand-primary to-blue-600 hover:shadow-lg hover:shadow-brand-primary/50 transition-all group relative"
                 title="Resume"
               >
@@ -184,7 +188,9 @@ const NavBar = () => {
                   </Link>
                 ))}
                 <a
-                  href="https://drive.google.com/uc?export=download&id=1GVOtIWTY0VzMLTwUVkUm5i4H_yAvtu-6"
+                  href="https://drive.google.com/file/d/1RVZfgA5toMmGeFhw5tyMoQUVaKvmaJC6/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-3 px-4 py-3 text-white bg-gradient-to-r from-brand-primary to-blue-600 rounded-xl font-semibold shadow-lg"
                 >
                   <FileText className="w-5 h-5" />

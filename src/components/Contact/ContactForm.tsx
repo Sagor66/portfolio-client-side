@@ -29,6 +29,12 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+      {/* Hidden subject field for Formspree */}
+      <input
+        type="hidden"
+        name="_subject"
+        value="New Message from Portfolio Site"
+      />
       {/* Name Field */}
       <div>
         <label

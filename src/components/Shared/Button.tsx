@@ -12,6 +12,8 @@ interface ButtonProps {
   disabled?: boolean;
   className?: string;
   href?: string;
+  target?: string;
+  rel?: string;
 }
 
 const Button = ({
@@ -23,6 +25,8 @@ const Button = ({
   disabled = false,
   className = "",
   href,
+  target,
+  rel,
 }: ButtonProps) => {
   const baseStyles =
     "font-bold rounded-xl transition-all inline-flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed";
@@ -49,6 +53,8 @@ const Button = ({
     return (
       <motion.a
         href={href}
+        target={target}
+        rel={rel}
         whileHover={{ scale: disabled ? 1 : 1.05 }}
         whileTap={{ scale: disabled ? 1 : 0.95 }}
         className={combinedClassName}

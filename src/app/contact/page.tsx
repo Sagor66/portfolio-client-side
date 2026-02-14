@@ -64,11 +64,17 @@ const Contact = () => {
                       Email
                     </p>
                     <a
+                      href="mailto:sazzadulhaquesagor@gmail.com"
+                      className="text-lg font-medium text-slate-900 hover:text-brand-primary transition-colors"
+                    >
+                      sazzadulhaquesagor@gmail.com
+                    </a>
+                    {/* <a
                       href="mailto:shazzad.sagor@outlook.com"
                       className="text-lg font-medium text-slate-900 hover:text-brand-primary transition-colors"
                     >
                       shazzad.sagor@outlook.com
-                    </a>
+                    </a> */}
                   </div>
                 </motion.div>
 
@@ -113,10 +119,12 @@ const Contact = () => {
                       WhatsApp
                     </p>
                     <a
-                      href="https://wa.me/8801723624896"
+                      href="https://wa.me/8801521428249"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-lg font-medium text-slate-900 hover:text-brand-primary transition-colors"
                     >
-                      +880 1723-624896
+                      +880 1521-428249
                     </a>
                   </div>
                 </motion.div>
