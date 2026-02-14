@@ -1,10 +1,77 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Button from "../Shared/Button";
 
 const Banner = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 700);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  if (isMobile) {
+    return (
+      <div className="relative pt-20 pb-12 px-6 overflow-hidden bg-white">
+        <div className="flex flex-col items-center text-center gap-8 relative z-10">
+          {/* Static Simple Image - Rounded and Centered */}
+          <div className="w-56 h-56 relative rounded-full shadow-2xl border-4 border-white overflow-hidden">
+            <div className="static-profile-image" />
+          </div>
+
+          <div className="space-y-4">
+            <h1 className="text-4xl font-black tracking-tight leading-tight text-slate-900 px-2">
+              Hi, I'm{" "}
+              <span className="bg-gradient-to-r from-brand-primary via-blue-600 to-brand-primary bg-clip-text text-transparent">
+                Shazzadul Haque
+              </span>
+            </h1>
+
+            <h4 className="text-xl font-bold text-slate-800 tracking-tight">
+              Full-Stack Software Engineer
+            </h4>
+
+            <p className="text-base text-slate-600 leading-relaxed font-medium max-w-sm mx-auto">
+              Building scalable SaaS products, APIs, and modern web experiences.
+              From{" "}
+              <span className="text-slate-900 font-bold border-b-2 border-brand-primary/20">
+                concept → production
+              </span>
+              .
+            </p>
+          </div>
+
+          <div className="flex flex-col w-full gap-4 max-w-xs">
+            <Button href="/contact" size="lg" className="w-full">
+              Let's Talk
+            </Button>
+            <Button
+              href="/experience"
+              variant="outline"
+              size="lg"
+              className="w-full"
+            >
+              View Experience
+            </Button>
+          </div>
+        </div>
+
+        {/* Simplified Static Background */}
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-brand-primary/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl" />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       {/* Background Decorative Elements */}
@@ -19,22 +86,7 @@ const Banner = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-2xl text-center lg:text-left"
         >
-          {/* <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 mb-6"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-primary opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-primary"></span>
-            </span>
-            <span className="text-sm font-bold text-brand-primary uppercase tracking-wider">
-              Available for new projects
-            </span>
-          </motion.div> */}
-
-          <h1 className="text-5xl md:text-7xl font-black mb-4 tracking-tight leading-tight">
+          <h1 className="text-5xl md:text-7xl font-black mb-4 tracking-tight leading-tight text-slate-900">
             Hi, I'm{" "}
             <span className="bg-gradient-to-r from-brand-primary via-blue-600 to-brand-primary bg-clip-text text-transparent">
               Shazzadul Haque

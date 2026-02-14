@@ -15,6 +15,14 @@
   transition: all 1s ease-in-out;
 }
 
+.static-profile-image {
+  background: url("../assets/banner/IMG_0647.jpg");
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 100%;
+}
+
 @keyframes animate {
   0% {
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
