@@ -345,7 +345,14 @@ const TimelineCard = ({
   const isEven = index % 2 === 0;
 
   const cardContent = (
-    <div
+    <motion.div
+      whileInView={{
+        boxShadow: "0 10px 40px -10px rgba(59, 130, 246, 0.2)",
+        borderColor: "rgba(59, 130, 246, 0.4)",
+        scale: 1.01,
+      }}
+      transition={{ duration: 0.5 }}
+      viewport={{ amount: 0.8, margin: "-10% 0px -10% 0px" }}
       className={`bg-white p-6 rounded-xl shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 relative group ${isEven ? "md:mr-10" : "md:ml-10"} ${item.helpUrl ? "cursor-pointer ring-1 ring-slate-100 hover:ring-brand-primary/30" : ""}`}
     >
       {/* Connector Line (Desktop) */}
@@ -405,7 +412,7 @@ const TimelineCard = ({
       <div className="absolute right-4 bottom-4 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity duration-500 pointer-events-none">
         <item.icon size={80} />
       </div>
-    </div>
+    </motion.div>
   );
 
   return (

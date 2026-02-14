@@ -133,9 +133,21 @@ const TechWeb = () => {
   const offsetRef = useRef(0);
   const [particles, setParticles] = useState<Particle[]>([]);
   const [highlightedNode, setHighlightedNode] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
   const particleIdRef = useRef(0);
 
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) return;
     const canvas = canvasRef.current;
     const container = containerRef.current;
     if (!canvas || !container) return;
@@ -310,64 +322,105 @@ const TechWeb = () => {
         <div
           ref={containerRef}
           className="relative max-w-6xl mx-auto rounded-3xl bg-gradient-to-b from-white/30 to-slate-50/30 backdrop-blur-sm shadow-xl overflow-hidden"
-          style={{ minHeight: "700px" }}
+          style={{ minHeight: isMobile ? "auto" : "700px" }}
         >
-          <canvas
-            ref={canvasRef}
-            className="absolute top-0 left-0 w-full h-full pointer-events-none z-0"
-          />
+          {!isMobile ? (
+            <>
+              <canvas
+                ref={canvasRef}
+                className="absolute top-0 left-0 w-full h-full pointer-events-none z-0"
+              />
 
-          <motion.div
-            id="node-core"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.5, type: "spring" }}
-            className="tech-node absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-brand-primary to-blue-600 flex flex-col items-center justify-center text-white shadow-2xl z-20 cursor-pointer hover:scale-110 transition-transform"
-            style={{ animation: "float 6s ease-in-out infinite" }}
-          >
-            <span className="text-xs uppercase tracking-widest font-bold opacity-80">
-              Hub
-            </span>
-            <span className="text-xl md:text-2xl font-black">CORE</span>
-            <span className="text-xs font-medium mt-1">Full-Stack</span>
-          </motion.div>
-
-          {techNodes.map((tech, index) => (
-            <motion.div
-              key={tech.id}
-              id={`node-${tech.id}`}
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{
-                scale: highlightedNode === tech.id ? 1.2 : 1,
-                opacity: 1,
-              }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`tech-node absolute w-20 h-20 md:w-24 md:h-24 bg-white rounded-full border-2 flex flex-col items-center justify-center shadow-lg cursor-pointer hover:scale-110 hover:shadow-2xl transition-all z-10 ${
-                highlightedNode === tech.id
-                  ? "ring-4 ring-offset-2"
-                  : "border-slate-100"
-              }`}
-              style={{
-                top: tech.position.top,
-                left: tech.position.left,
-                borderColor:
-                  highlightedNode === tech.id ? tech.color : undefined,
-              }}
-            >
-              <div
-                className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mb-1"
-                style={{ backgroundColor: `${tech.color}15` }}
+              <motion.div
+                id="node-core"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.5, type: "spring" }}
+                className="tech-node absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-brand-primary to-blue-600 flex flex-col items-center justify-center text-white shadow-2xl z-20 cursor-pointer hover:scale-110 transition-transform"
+                style={{ animation: "float 6s ease-in-out infinite" }}
               >
-                <tech.icon
-                  className="w-6 h-6 md:w-7 md:h-7"
-                  style={{ color: tech.color }}
-                />
+                <span className="text-xs uppercase tracking-widest font-bold opacity-80">
+                  Hub
+                </span>
+                <span className="text-xl md:text-2xl font-black">CORE</span>
+                <span className="text-xs font-medium mt-1">Full-Stack</span>
+              </motion.div>
+
+              {techNodes.map((tech, index) => (
+                <motion.div
+                  key={tech.id}
+                  id={`node-${tech.id}`}
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={{
+                    scale: highlightedNode === tech.id ? 1.2 : 1,
+                    opacity: 1,
+                  }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className={`tech-node absolute w-20 h-20 md:w-24 md:h-24 bg-white rounded-full border-2 flex flex-col items-center justify-center shadow-lg cursor-pointer hover:scale-110 hover:shadow-2xl transition-all z-10 ${
+                    highlightedNode === tech.id
+                      ? "ring-4 ring-offset-2"
+                      : "border-slate-100"
+                  }`}
+                  style={{
+                    top: tech.position.top,
+                    left: tech.position.left,
+                    borderColor:
+                      highlightedNode === tech.id ? tech.color : undefined,
+                  }}
+                >
+                  <div
+                    className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mb-1"
+                    style={{ backgroundColor: `${tech.color}15` }}
+                  >
+                    <tech.icon
+                      className="w-6 h-6 md:w-7 md:h-7"
+                      style={{ color: tech.color }}
+                    />
+                  </div>
+                  <span className="text-[10px] md:text-xs font-semibold text-slate-700 text-center px-1">
+                    {tech.name}
+                  </span>
+                </motion.div>
+              ))}
+            </>
+          ) : (
+            <div className="grid grid-cols-2 xs:grid-cols-3 gap-4 p-6">
+              <div className="col-span-full flex justify-center mb-6">
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  className="w-28 h-28 rounded-full bg-gradient-to-br from-brand-primary to-blue-600 flex flex-col items-center justify-center text-white shadow-xl"
+                >
+                  <span className="text-[10px] uppercase tracking-widest font-bold opacity-80">
+                    Hub
+                  </span>
+                  <span className="text-lg font-black">CORE</span>
+                </motion.div>
               </div>
-              <span className="text-[10px] md:text-xs font-semibold text-slate-700 text-center px-1">
-                {tech.name}
-              </span>
-            </motion.div>
-          ))}
+              {techNodes.map((tech, index) => (
+                <motion.div
+                  key={tech.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.05 }}
+                  className="bg-white rounded-2xl p-4 flex flex-col items-center justify-center border border-slate-100 shadow-sm"
+                >
+                  <div
+                    className="w-10 h-10 rounded-full flex items-center justify-center mb-2"
+                    style={{ backgroundColor: `${tech.color}10` }}
+                  >
+                    <tech.icon
+                      className="w-5 h-5"
+                      style={{ color: tech.color }}
+                    />
+                  </div>
+                  <span className="text-xs font-bold text-slate-700">
+                    {tech.name}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+          )}
         </div>
 
         <div className="max-w-4xl mx-auto mt-12 flex flex-wrap justify-center gap-6 text-sm text-slate-600 font-medium">

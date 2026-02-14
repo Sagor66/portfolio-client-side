@@ -52,15 +52,7 @@ const TechStackMarquee = () => {
   const duplicatedRow2 = [...row2, ...row2, ...row2];
 
   return (
-    <div className="relative w-full bg-[#030711] py-24 overflow-hidden">
-      {/* Smoother Blending Masks */}
-      <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-white via-white/80 to-transparent z-20 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-white via-white/80 to-transparent z-20 pointer-events-none" />
-
-      {/* Secondary Softening Layer */}
-      <div className="absolute top-0 left-0 w-full h-20 bg-white z-30 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-full h-20 bg-white z-30 pointer-events-none" />
-
+    <div className="relative w-full bg-[#030711] py-24 overflow-hidden border-y border-slate-800/10">
       {/* Premium Background Effects */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/10 rounded-full blur-[120px] animate-pulse"></div>
