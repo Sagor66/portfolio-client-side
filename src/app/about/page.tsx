@@ -8,7 +8,7 @@ import TechWeb from "@/components/About/TechWeb";
 
 const AboutMe = () => {
   return (
-    <div className="bg-slate-50 min-h-screen">
+    <div className="bg-gradient-to-b from-white via-slate-50 to-white min-h-screen">
       {/* Hero Section */}
       <section className="py-20 md:py-32">
         <div className="max-w-7xl mx-auto px-6">
@@ -42,7 +42,7 @@ const AboutMe = () => {
             {/* Text Side */}
             <div className="w-full lg:w-2/3">
               <div className="inline-block px-4 py-1.5 mb-4 text-sm font-bold tracking-wide text-brand-primary uppercase bg-blue-50 rounded-full">
-                Software Engineer
+                Full-Stack Software Engineer
               </div>
               <h1 className="text-5xl md:text-6xl font-extrabold mb-6">
                 <span className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 bg-clip-text text-transparent">

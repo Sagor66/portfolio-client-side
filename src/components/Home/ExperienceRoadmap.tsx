@@ -21,6 +21,7 @@ interface TimelineEvent {
   company: string;
   type: "feature" | "role" | "project";
   icon: React.ElementType;
+  helpUrl?: string;
   content: {
     problem?: string;
     built: string;
@@ -37,6 +38,7 @@ const timelineData: TimelineEvent[] = [
     company: "EzyCourse",
     type: "feature",
     icon: Calendar,
+    helpUrl: "https://help.ezycourse.com/article/create-an-appointment",
     content: {
       problem: "Users needed timezone-aware scheduling.",
       built: "Full booking engine with Google Calendar sync.",
@@ -51,6 +53,7 @@ const timelineData: TimelineEvent[] = [
     company: "EzyCourse",
     type: "feature",
     icon: Users,
+    helpUrl: "https://help.ezycourse.com/article/import-students",
     content: {
       built:
         "CSV import/export system to migrate users from other platforms with auto-enrollment.",
@@ -66,6 +69,7 @@ const timelineData: TimelineEvent[] = [
     company: "EzyCourse",
     type: "feature",
     icon: BookOpen,
+    helpUrl: "https://help.ezycourse.com/article/scorm-html-lessons",
     content: {
       built: "SCORM player + tracking engine.",
       impact:
@@ -80,6 +84,7 @@ const timelineData: TimelineEvent[] = [
     company: "EzyCourse",
     type: "feature",
     icon: Video,
+    helpUrl: "http://help.ezycourse.com/article/create-a-video-library",
     content: {
       built: "Centralized media management system.",
       impact: "Faster course creation & content reuse.",
@@ -93,6 +98,7 @@ const timelineData: TimelineEvent[] = [
     company: "EzyCourse",
     type: "feature",
     icon: Mail,
+    helpUrl: "https://help.ezycourse.com/article/create-an-ezycourse-community",
     content: {
       built:
         "Transactional email service, notification system, and automation workflows.",
@@ -107,6 +113,7 @@ const timelineData: TimelineEvent[] = [
     company: "EzyCourse",
     type: "feature",
     icon: Smartphone,
+    helpUrl: "https://help.ezycourse.com/article/mobile-app-terms-policy",
     content: {
       built:
         "REST APIs for Flutter mobile app with optimized payloads & caching.",
@@ -121,6 +128,7 @@ const timelineData: TimelineEvent[] = [
     company: "EzyCourse",
     type: "feature",
     icon: Zap,
+    helpUrl: "https://nextjs.org/docs/app/guides/package-bundling",
     content: {
       built: "DB indexing, query filters, and reduced Next.js bundle size.",
       impact:
@@ -130,15 +138,18 @@ const timelineData: TimelineEvent[] = [
   },
   {
     id: 8,
-    title: "Leadership & Ownership",
+    title: "Engineering Ownership & Stability Leadership",
     subtitle: "Team Lead",
     company: "EzyCourse",
     type: "role",
     icon: Award,
     content: {
-      built: "Led small bug-fix team and directly handled client issues.",
-      impact: "Converted customer feedback into product improvements.",
-      tech: ["Leadership", "Mentoring", "Agile"],
+      problem: "Ensuring production reliability and faster issue turnaround.",
+      built:
+        "Led bug resolution efforts, triage cycles, and root-cause analysis for recurring issues.",
+      impact:
+        "Improved product stability, reduced reports, and accelerated critical issue resolution.",
+      tech: ["Leadership", "Triage", "Root-Cause Analysis", "Code Quality"],
     },
   },
   {
@@ -148,6 +159,7 @@ const timelineData: TimelineEvent[] = [
     company: "EzyCommunity",
     type: "project",
     icon: Database,
+    helpUrl: "https://www.ezycommunity.com/",
     content: {
       built:
         "Designed DB schema, backend APIs, and integrated frontend. Implemented enrollments, lessons, and progress tracking.",
@@ -167,24 +179,49 @@ const ExperienceRoadmap = () => {
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <div className="py-24 bg-white relative overflow-hidden" ref={containerRef}>
-      <div className="max-w-7xl mx-auto px-6">
+    <div
+      className="py-24 bg-gradient-to-b from-white via-slate-50 to-white relative overflow-hidden"
+      ref={containerRef}
+    >
+      {/* Decorative Background Elements */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <BackgroundShapes />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
-          <div className="inline-block px-4 py-1.5 mb-4 text-sm font-bold tracking-wide text-brand-primary uppercase bg-blue-50 rounded-full">
-            My Journey
-          </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-block px-4 py-1.5 mb-4 text-sm font-bold tracking-wide text-brand-primary uppercase bg-blue-100/50 rounded-full"
+          >
+            My Journey (2023 - Present)
+          </motion.div>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6"
+          >
             Experience <span className="text-brand-primary">Timeline</span>
-          </h2>
-          <p className="text-slate-600 max-w-2xl mx-auto text-lg leading-relaxed">
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-slate-600 max-w-2xl mx-auto text-lg leading-relaxed"
+          >
             A detailed look at the features I've built, the problems I've
             solved, and the impact I've delivered.
-          </p>
+          </motion.p>
         </div>
 
         <div className="relative">
           {/* Vertical Line */}
-          <div className="absolute left-6 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-1 bg-slate-100 rounded-full h-full">
+          <div className="absolute left-6 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-1 bg-slate-200 rounded-full h-full">
             <motion.div
               style={{ height: lineHeight }}
               className="w-full bg-brand-primary origin-top rounded-full shadow-[0_0_15px_rgba(59,130,246,0.5)]"
@@ -202,6 +239,102 @@ const ExperienceRoadmap = () => {
   );
 };
 
+const BackgroundShapes = () => {
+  return (
+    <>
+      <motion.div
+        animate={{
+          y: [0, -20, 0],
+          rotate: [0, 10, 0],
+          scale: [1, 1.1, 1],
+        }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-20 left-10 w-64 h-64 bg-blue-200/20 rounded-full blur-3xl"
+      />
+      <motion.div
+        animate={{
+          y: [0, 30, 0],
+          rotate: [0, -15, 0],
+        }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-1/3 right-10 w-96 h-96 bg-indigo-200/20 rounded-full blur-3xl"
+      />
+      <motion.div
+        animate={{
+          x: [0, 20, 0],
+          y: [0, -30, 0],
+        }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-20 left-1/4 w-72 h-72 bg-purple-200/10 rounded-full blur-3xl"
+      />
+
+      {/* Small floating particles */}
+      {[...Array(15)].map((_, i) => (
+        <motion.div
+          key={i}
+          initial={{
+            x: Math.random() * 100 + "%",
+            y: Math.random() * 100 + "%",
+            opacity: Math.random() * 0.5 + 0.2,
+          }}
+          animate={{
+            y: ["-10%", "110%"],
+          }}
+          transition={{
+            duration: Math.random() * 20 + 20,
+            repeat: Infinity,
+            ease: "linear",
+            delay: Math.random() * 20,
+          }}
+          className="absolute w-1 h-1 bg-brand-primary/20 rounded-full"
+        />
+      ))}
+
+      {/* Geometric shapes */}
+      <div className="absolute top-[15%] left-[5%] opacity-10">
+        <svg width="100" height="100" viewBox="0 0 100 100">
+          <circle
+            cx="50"
+            cy="50"
+            r="40"
+            stroke="currentColor"
+            strokeWidth="2"
+            fill="none"
+            className="text-brand-primary"
+          />
+        </svg>
+      </div>
+      <div className="absolute top-[45%] right-[5%] opacity-10">
+        <svg width="120" height="120" viewBox="0 0 120 120">
+          <rect
+            x="20"
+            y="20"
+            width="80"
+            height="80"
+            stroke="currentColor"
+            strokeWidth="2"
+            fill="none"
+            transform="rotate(15 60 60)"
+            className="text-brand-primary"
+          />
+        </svg>
+      </div>
+      <div className="absolute bottom-[20%] left-[8%] opacity-10">
+        <svg width="80" height="80" viewBox="0 0 80 80">
+          <path
+            d="M40 10 L70 70 L10 70 Z"
+            stroke="currentColor"
+            strokeWidth="2"
+            fill="none"
+            transform="rotate(-20 40 40)"
+            className="text-brand-primary"
+          />
+        </svg>
+      </div>
+    </>
+  );
+};
+
 const TimelineCard = ({
   item,
   index,
@@ -211,51 +344,103 @@ const TimelineCard = ({
 }) => {
   const isEven = index % 2 === 0;
 
+  const cardContent = (
+    <div
+      className={`bg-white p-6 rounded-xl shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 relative group ${isEven ? "md:mr-10" : "md:ml-10"} ${item.helpUrl ? "cursor-pointer ring-1 ring-slate-100 hover:ring-brand-primary/30" : ""}`}
+    >
+      {/* Connector Line (Desktop) */}
+      <div
+        className={`absolute top-1/2 -translate-y-1/2 w-10 h-px bg-slate-200 hidden md:block group-hover:bg-brand-primary transition-colors duration-500
+            ${isEven ? "-right-10" : "-left-10"}
+          `}
+      ></div>
+
+      <div className="flex flex-col mb-4">
+        <div className="flex items-center justify-between mb-1">
+          <span className="text-xs font-bold text-brand-primary uppercase tracking-wider bg-blue-50 px-2 py-0.5 rounded">
+            {item.company}
+          </span>
+          {item.helpUrl && (
+            <span className="text-[10px] text-slate-400 group-hover:text-brand-primary transition-colors flex items-center gap-1">
+              View Specs ↗
+            </span>
+          )}
+        </div>
+        <h3 className="text-xl font-bold text-slate-900 group-hover:text-brand-primary transition-colors duration-300">
+          {item.title}
+        </h3>
+        <p className="text-sm text-slate-500 font-medium">{item.subtitle}</p>
+      </div>
+
+      <div className="space-y-3">
+        {item.content.problem && (
+          <p className="text-sm text-slate-600 leading-relaxed border-l-2 border-slate-100 pl-3 italic">
+            "{item.content.problem}"
+          </p>
+        )}
+        <p className="text-sm text-slate-700 leading-relaxed">
+          <span className="font-semibold text-slate-900">What I built:</span>{" "}
+          {item.content.built}
+        </p>
+        <div className="pt-2">
+          <p className="text-sm text-slate-600 leading-snug">
+            <strong className="text-brand-primary font-bold">Impact:</strong>{" "}
+            {item.content.impact}
+          </p>
+        </div>
+
+        <div className="flex flex-wrap gap-2 pt-2">
+          {item.content.tech.map((t, idx) => (
+            <span
+              key={idx}
+              className="text-[10px] font-bold px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md"
+            >
+              {t}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Subtle background icon for the card */}
+      <div className="absolute right-4 bottom-4 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity duration-500 pointer-events-none">
+        <item.icon size={80} />
+      </div>
+    </div>
+  );
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, x: isEven ? 50 : -50 }}
+      whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
       className={`relative flex flex-col md:flex-row items-center gap-6 md:gap-12 ${
         isEven ? "md:flex-row-reverse" : ""
       }`}
     >
       {/* Timeline Dot */}
-      <div className="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-white border-2 border-brand-primary rounded-full z-10 shadow flex items-center justify-center">
-        <item.icon className="w-4 h-4 text-brand-primary" />
-      </div>
+      <motion.div
+        // whileHover={{ scale: 1.2, rotate: 360 }}
+        // transition={{ type: "spring", stiffness: 260, damping: 20 }}
+        className="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-10 h-10 bg-white border-4 border-brand-primary rounded-full z-10 shadow-lg flex items-center justify-center cursor-help"
+      >
+        <item.icon className="w-5 h-5 text-brand-primary" />
+      </motion.div>
 
       {/* Content Side */}
       <div className="w-full md:w-1/2 pl-20 md:pl-0">
-        <div
-          className={`bg-white p-6 rounded-xl shadow-md border border-slate-100 hover:shadow-lg transition-transform duration-300 hover:-translate-y-1 relative group ${isEven ? "md:mr-10" : "md:ml-10"}`}
-        >
-          {/* Connector Line (Desktop) */}
-          <div
-            className={`absolute top-1/2 -translate-y-1/2 w-10 h-px bg-slate-200 hidden md:block group-hover:bg-brand-primary/50 transition-colors
-                ${isEven ? "-right-10" : "-left-10"}
-              `}
-          ></div>
-
-          <div className="flex flex-col mb-2">
-            <div className="flex items-center justify-between mb-1">
-              <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                {item.company}
-              </span>
-            </div>
-            <h3 className="text-lg font-bold text-slate-900 group-hover:text-brand-primary transition-colors">
-              {item.title}
-            </h3>
-          </div>
-
-          <div>
-            <p className="text-sm text-slate-600 leading-snug">
-              <strong className="text-brand-primary">Impact:</strong>{" "}
-              {item.content.impact}
-            </p>
-          </div>
-        </div>
+        {item.helpUrl ? (
+          <a
+            href={item.helpUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block"
+          >
+            {cardContent}
+          </a>
+        ) : (
+          cardContent
+        )}
       </div>
 
       {/* Empty side for layout balance */}

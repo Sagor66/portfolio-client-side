@@ -27,7 +27,7 @@ const FeaturedProjects = () => {
   }, []);
 
   return (
-    <section className="py-24 bg-slate-50 relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-b from-white via-slate-50 to-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12">
           <div>

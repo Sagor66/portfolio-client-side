@@ -42,7 +42,7 @@ const Banner = () => {
           </h1>
 
           <h4 className="text-2xl md:text-4xl font-bold text-slate-800 mb-6 tracking-tight">
-            Full-Stack Engineer
+            Full-Stack Software Engineer
           </h4>
 
           <p className="text-lg md:text-xl tracking-wide text-slate-600 mb-10 leading-relaxed font-medium">
